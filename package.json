@@ -1,0 +1,29 @@
+{
+  "name": "graphqlapolloserver",
+  "version": "1.0.0",
+  "description": "GraphQL Server with Apollo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evillegas92/GraphQLApolloServer.git"
+  },
+  "keywords": [
+    "GraphQL",
+    "Apollo"
+  ],
+  "author": "Esteban Villegas",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/evillegas92/GraphQLApolloServer/issues"
+  },
+  "homepage": "https://github.com/evillegas92/GraphQLApolloServer#readme",
+  "dependencies": {
+    "apollo-server": "^3.12.0",
+    "graphql": "^16.6.0",
+    "nodemon": "^2.0.22"
+  }
+}

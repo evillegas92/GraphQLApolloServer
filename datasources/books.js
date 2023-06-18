@@ -1,4 +1,5 @@
 const { DataSource } = require("apollo-datasource");
+const _ = require("lodash");
 
 class BooksApi extends DataSource {
     constructor() {
@@ -11,6 +12,14 @@ class BooksApi extends DataSource {
 
     getBooks() {
         return books;
+    }
+
+    getBookById(id) {
+        const filteredBooks = _.filter(books, { id });
+        if (!filteredBooks || filteredBooks.length === 0) {
+            return null;
+        }
+        return filteredBooks[0];
     }
 }
 

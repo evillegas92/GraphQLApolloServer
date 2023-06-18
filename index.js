@@ -10,6 +10,7 @@ const typeDefs = gql`
 
     type Query {
         books: [Book]
+        bookById(id: ID): Book
     }
 `;
 
@@ -17,6 +18,9 @@ const resolvers = {
     Query: {
         books: (parent, args, context, info) => {
             return context.dataSources.booksApi.getBooks();
+        },
+        bookById: (parent, args, context, info) => {
+            return context.dataSources.booksApi.getBookById(args.id);
         }
     }
 };

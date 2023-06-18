@@ -1,7 +1,9 @@
 const { ApolloServer, gql } = require('apollo-server');
+const BooksApi = require("./datasources/books");
 
 const typeDefs = gql`
     type Book {
+        id: ID!
         title: String
         author: String
     }
@@ -13,13 +15,20 @@ const typeDefs = gql`
 
 const resolvers = {
     Query: {
-        books: () => books,
+        books: (parent, args, context, info) => {
+            return context.dataSources.booksApi.getBooks();
+        }
     }
 };
+
+const dataSources = () => ({
+    booksApi: new BooksApi()
+});
 
 const server = new ApolloServer({
     typeDefs,
     resolvers,
+    dataSources,
     csrfPrevention: true,
     cache: 'bounded',
     plugins: []
@@ -29,13 +38,3 @@ server.listen({ port: process.env.PORT || 4000 }).then(({ url }) => {
     console.log(`graphQL server running at ${ url }`);
 });
 
-const books = [
-    {
-        title: "The Awakening",
-        author: "Kate Chopin",
-    },
-    {
-        title: "City of Glass",
-        author: "Paul Auster"
-    }
-];

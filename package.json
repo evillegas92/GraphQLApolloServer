@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/evillegas92/GraphQLApolloServer#readme",
   "dependencies": {
+    "apollo-datasource": "^3.3.2",
     "apollo-server": "^3.12.0",
     "graphql": "^16.6.0",
     "nodemon": "^2.0.22"

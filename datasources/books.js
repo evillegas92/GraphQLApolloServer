@@ -21,6 +21,10 @@ class BooksApi extends DataSource {
         }
         return filteredBooks[0];
     }
+
+    getBooks(args) {
+        return _.filter(books, args);
+    }
 }
 
 module.exports = BooksApi;

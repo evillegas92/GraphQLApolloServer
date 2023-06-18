@@ -1,4 +1,4 @@
-const { ApolloServer, gql } = require('apollo-server');
+const { ApolloServer, gql } = require("apollo-server");
 const BooksApi = require("./datasources/books");
 
 const typeDefs = gql`
@@ -9,18 +9,26 @@ const typeDefs = gql`
     }
 
     type Query {
-        books: [Book]
+        allBooks: [Book]
         bookById(id: ID): Book
+        books(
+            id: ID
+            title: String
+            author: String
+        ): [Book]
     }
 `;
 
 const resolvers = {
     Query: {
-        books: (parent, args, context, info) => {
+        allBooks: (parent, args, context, info) => {
             return context.dataSources.booksApi.getBooks();
         },
         bookById: (parent, args, context, info) => {
             return context.dataSources.booksApi.getBookById(args.id);
+        },
+        books: (parent, args, context, info) => {
+            return context.dataSources.booksApi.getBooks(args);
         }
     }
 };

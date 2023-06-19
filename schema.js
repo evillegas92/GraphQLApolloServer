@@ -5,6 +5,13 @@ type Book {
     id: ID!
     title: String
     author: String
+    publisher: Publisher
+}
+
+type Publisher {
+    id: ID!
+    name: String
+    books: [Book]
 }
 
 type Query {
@@ -15,5 +22,6 @@ type Query {
         title: String
         author: String
     ): [Book]
+    allPublishers: [Publisher]
 }
 `;

@@ -34,10 +34,18 @@ const books = [
         id: "1001",
         title: "The Awakening",
         author: "Kate Chopin",
+        publisher: {
+            id: "1001",
+            name: "Puenguin Media",
+        }
     },
     {
         id: "1002",
         title: "City of Glass",
-        author: "Paul Auster"
+        author: "Paul Auster",
+        publisher: {
+            id: "1001",
+            name: "Puenguin Media",
+        }
     }
 ];

@@ -1,10 +1,12 @@
 const { ApolloServer, gql } = require("apollo-server");
 const BooksApi = require("./datasources/books");
+const PublishersApi = require("./datasources/publishers");
 const typeDefs = require("./schema.js");
 const resolvers = require("./resolvers");
 
 const dataSources = () => ({
-    booksApi: new BooksApi()
+    booksApi: new BooksApi(),
+    publishersApi: new PublishersApi(),
 });
 
 const server = new ApolloServer({

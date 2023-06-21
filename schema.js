@@ -5,6 +5,7 @@ type Book {
     id: ID!
     title: String
     author: String
+    favorite: Boolean
     publisher: Publisher
 }
 
@@ -23,5 +24,9 @@ type Query {
         author: String
     ): [Book]
     allPublishers: [Publisher]
+}
+
+type Mutation {
+    favoriteBook(bookId: ID): Book
 }
 `;

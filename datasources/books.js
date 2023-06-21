@@ -25,6 +25,16 @@ class BooksApi extends DataSource {
     getBooks(args) {
         return _.filter(books, args);
     }
+
+    favoriteBook(id) {
+        const filteredBooks = _.filter(books, { id });
+        if (!filteredBooks || filteredBooks.length === 0) {
+            return null;
+        }
+        const book = filteredBooks[0];
+        book.favorite = !book.favorite;
+        return book;
+    }
 }
 
 module.exports = BooksApi;

@@ -12,11 +12,18 @@ type Book {
 type Publisher {
     id: ID!
     name: String
+    type: PublisherType
     books: [Book]
 }
 
 input PublisherInput {
     name: String!
+    type: PublisherType
+}
+
+enum PublisherType {
+    TypeOne,
+    TypeTwo
 }
 
 type Query {

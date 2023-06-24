@@ -15,6 +15,10 @@ type Publisher {
     books: [Book]
 }
 
+input PublisherInput {
+    name: String!
+}
+
 type Query {
     allBooks: [Book]
     bookById(id: ID): Book
@@ -28,5 +32,6 @@ type Query {
 
 type Mutation {
     favoriteBook(bookId: ID): Book
+    addPublisher(publisher: PublisherInput): Publisher
 }
 `;

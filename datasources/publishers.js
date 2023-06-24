@@ -13,6 +13,12 @@ class PublishersApi extends DataSource {
     getPublishers() {
         return publishers;
     }
+
+    addPublisher(publisher) {
+        publisher.id = 12;
+        publishers.push(publisher);
+        return publisher;
+    }
 }
 
 module.exports = PublishersApi;

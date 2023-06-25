@@ -26,9 +26,17 @@ enum PublisherType {
     TypeTwo
 }
 
+type Error {
+    code: String
+    message: String
+    token: String
+}
+
+union BookOrError = Book | Error
+
 type Query {
     allBooks: [Book]
-    bookById(id: ID): Book
+    bookById(id: ID): BookOrError
     books(
         id: ID
         title: String
